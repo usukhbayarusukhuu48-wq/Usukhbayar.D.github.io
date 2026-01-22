@@ -135,6 +135,26 @@
       border-top: 1px solid #ddd;
     }
     
+    /* Зураг шалгах хэсэг */
+    .image-status {
+      text-align: center;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+    }
+    
+    .image-success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    
+    .image-error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+    
     @media (max-width: 768px) {
       body {
         margin: 20px auto;
@@ -156,12 +176,32 @@
   <div class="subtitle">Мэргэжлийн программист, веб хөгжүүлэгч</div>
   
   <div class="section">
-  
+    <!-- ТАНЫ ЗУРГИЙН ЗАМ ЭНД ОРУУЛСАН -->
+    <!-- images/0-02-06-2777ad3a2358edb41caa23093f44ef9b26cbc5dc89f1fbb152997d565d10a056_e7749e52da2746d5.jpg -->
     <img src="images/0-02-06-2777ad3a2358edb41caa23093f44ef9b26cbc5dc89f1fbb152997d565d10a056_e7749e52da2746d5.jpg" 
-         alt="images/0-02-06-2777ad3a2358edb41caa23093f44ef9b26cbc5dc89f1fbb152997d565d10a056_e7749e52da2746d5.jpg" 
-         class="profile-img">
+         alt="Өсөхбаярын зураг" 
+         class="profile-img"
+         id="myPhoto"
+         onerror="handleImageError()">
     
-   
+    <!-- Зургийн статус харуулах -->
+    <div id="imageStatus" class="image-status" style="display: none;">
+      <p id="statusText"></p>
+    </div>
+    
+    <!-- GitHub заавар -->
+    <div style="background: #e8f4fc; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #1f3c88;">
+      <h4 style="margin-top: 0; color: #1f3c88;">ℹ️ GitHub дээр зураг байрлуулах:</h4>
+      <p><strong>Зургийн зам:</strong> <code>images/0-02-06-2777ad3a2358edb41caa23093f44ef9b26cbc5dc89f1fbb152997d565d10a056_e7749e52da2746d5.jpg</code></p>
+      <p><strong>GitHub дээрх бүтэц:</strong></p>
+      <pre style="background: white; padding: 10px; border-radius: 5px;">
+my-portfolio/
+├── index.html
+├── images/
+│   └── 0-02-06-2777ad3a2358edb41caa23093f44ef9b26cbc5dc89f1fbb152997d565d10a056_e7749e52da2746d5.jpg
+└── (бусад файлууд)
+      </pre>
+    </div>
     
     <h2>Миний тухай</h2>
     <p>Сайн байна уу? Намайг Өсөхбаяр гэдэг. Би 3+ жилийн туршлагатай веб хөгжүүлэгч, IT инженер. Технологийн шинэчлэл, код бичих урлагийг ихэд сонирхдог.</p>
@@ -191,12 +231,12 @@
       <div class="timeline-item">
         <div class="year">2025 - Одоо</div>
         <strong>ТИ АЙ ЛОЖИСТИК</strong> - IT инженер
-        <p>Системүүдийн хөгжүүлэлт, Интернет аюулгүй байдал,Интернетийн хэвийн үйл ажиллагаа </p>
+        <p>Системүүдийн хөгжүүлэлт, Интернет аюулгүй байдал,Интернетийн хэвийн үйл ажиллагаа</p>
       </div>
       <div class="timeline-item">
         <div class="year">2024 - 2025</div>
         <strong>Глобал Телеком.</strong> - Веб хөгжүүлэгч
-        <p>Корпорацийн вэбсайт, электрон худалдааны платформуудыг хөгжүүлэх, дэмжих.Интернет аюулгүй байдал,Интернетийн хэвийн үйл ажиллагаа .</p>
+        <p>Корпорацийн вэбсайт, электрон худалдааны платформуудыг хөгжүүлэх, дэмжих. Интернет аюулгүй байдал, Интернетийн хэвийн үйл ажиллагаа.</p>
       </div>
     </div>
   </div>
@@ -205,7 +245,7 @@
     <h2>Боловсрол</h2>
     <div class="timeline">
       <div class="timeline-item">
-        <div class="year">2019 - 2014</div>
+        <div class="year">2014 - 2019</div>
         <strong>Монгол Улсын Их Сургууль</strong> 
         <p>Сүлжээний Технологи чиглэлээр дээд боловсрол эзэмшсэн.</p>
       </div>
@@ -249,5 +289,3 @@
   <div class="footer">
     &copy; 2025 Өсөхбаяр. Бүх эрх хуулиар хамгаалагдсан.
   </div>
-</body>
-</html>
