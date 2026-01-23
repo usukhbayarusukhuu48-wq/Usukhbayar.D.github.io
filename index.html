@@ -109,10 +109,14 @@
       text-decoration: none;
       color: #333;
       transition: all 0.3s ease;
+      padding: 10px;
+      border-radius: 10px;
+      background: #f8f9fa;
     }
     
     .social-icon:hover {
       transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
     
     .social-icon svg {
@@ -416,8 +420,41 @@
       </a>
     </div>
     
+    <!-- ШИНЭ: Instagram болон Facebook холбоосууд -->
+    <div class="social-icons">
+      <!-- Instagram холбоос -->
+      <!-- ТАНЫ INSTAGRAM LINK ОРУУЛСАН -->
+      <a href="https://www.instagram.com/us9ukh_bayar?igsh=MWQ5Y2lobjFwdzZ4Zw==" class="social-icon" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="url(#instagram-gradient)">
+          <defs>
+            <linearGradient id="instagram-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#405DE6;stop-opacity:1" />
+              <stop offset="25%" style="stop-color:#5851DB;stop-opacity:1" />
+              <stop offset="50%" style="stop-color:#833AB4;stop-opacity:1" />
+              <stop offset="75%" style="stop-color:#C13584;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#E1306C;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+        <span class="social-label">Instagram</span>
+      </a>
+      
+      <!-- Facebook холбоос -->
+      <!-- ТАНЫ FACEBOOK LINK ОРУУЛСАН -->
+      <a href="https://www.facebook.com/share/17i6ikT5pG/" class="social-icon" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1877F2">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+        <span class="social-label">Facebook</span>
+      </a>
+    </div>
+  </div>
   
-    
+  <div class="footer">
+    &copy; 2025 Өсөхбаяр. Бүх эрх хуулиар хамгаалагдсан.
+  </div>
+
   <script>
     // Фон өнгө өөрчлөх функц
     function changeBackgroundColor(color, textColor) {
@@ -466,8 +503,8 @@
         document.body.style.backgroundImage = 'none';
       }
       
-      // Social media link update
-      updateSocialLinks();
+      // Сошиал холбоосыг шалгах
+      checkSocialLinks();
     });
     
     function showNotification(message) {
@@ -503,26 +540,38 @@
       }, 3000);
     }
     
- 
-   
-    
-    function saveSocialLinks() {
-      const instaLink = document.getElementById('instaInput').value;
-      const fbLink = document.getElementById('fbInput').value;
+    // Сошиал холбоос шалгах
+    function checkSocialLinks() {
+      const instagramLink = document.querySelector('a[href*="instagram"]');
+      const facebookLink = document.querySelector('a[href*="facebook"]');
       
-      if (instaLink) {
-        localStorage.setItem('instagramLink', instaLink);
-        document.querySelector('a[href*="instagram"]').href = instaLink;
+      console.log('📱 Instagram холбоос:', instagramLink.href);
+      console.log('📘 Facebook холбоос:', facebookLink.href);
+      
+      // Холбоос зөв эсэх шалгах
+      if (instagramLink.href.includes('us9ukh_bayar')) {
+        console.log('✅ Instagram холбоос зөв байна');
       }
       
-      if (fbLink) {
-        localStorage.setItem('facebookLink', fbLink);
-        document.querySelector('a[href*="facebook"]').href = fbLink;
+      if (facebookLink.href.includes('17i6ikT5pG')) {
+        console.log('✅ Facebook холбоос зөв байна');
       }
-      
-      showNotification('Сошиал холбоос хадгалагдлаа!');
-      document.getElementById('socialEditor').style.display = 'none';
     }
+    
+    // Сошиал холбоос click event нэмэх
+    document.addEventListener('DOMContentLoaded', function() {
+      const socialIcons = document.querySelectorAll('.social-icon');
+      
+      socialIcons.forEach(icon => {
+        icon.addEventListener('click', function(e) {
+          const platform = this.querySelector('.social-label').textContent;
+          console.log(`🎯 ${platform} холбоос дээр дарлаа`);
+          
+          // Google Analytics зэрэг tracking код нэмэх боломжтой
+          // ga('send', 'event', 'Social', 'click', platform);
+        });
+      });
+    });
     
     // CSS animation нэмэх
     const style = document.createElement('style');
@@ -537,198 +586,6 @@
       }
     `;
     document.head.appendChild(style);
-    
-    // Social link editor нэмэх (uncomment if needed)
-    // addSocialLinkEditor();
-  </script>
-</body>
-</html>
-      
-     
-  
-  <div class="footer">
-    &copy; 2025 Өсөхбаяр. Бүх эрх хуулиар хамгаалагдсан.
-  </div>
-
-  <script>
-    // Фон өнгө өөрчлөх функц
-    function changeBackgroundColor(color, textColor) {
-      document.body.style.background = color;
-      document.body.style.color = textColor;
-      document.body.style.backgroundImage = 'none';
-      
-      localStorage.setItem('bgColor', color);
-      localStorage.setItem('textColor', textColor);
-      localStorage.removeItem('bgGradient');
-      
-      showNotification('Фон өнгө өөрчлөгдлөө!');
-    }
-    
-    function changeBackgroundGradient() {
-      const gradients = [
-        'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-        'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-        'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-        'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
-        'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'
-      ];
-      
-      const randomGradient = gradients[Math.floor(Math.random() * gradients.length)];
-      document.body.style.background = randomGradient;
-      document.body.style.color = 'white';
-      
-      localStorage.setItem('bgGradient', randomGradient);
-      localStorage.removeItem('bgColor');
-      localStorage.removeItem('textColor');
-      
-      showNotification('Gradient фон сонгогдлоо!');
-    }
-    
-    document.addEventListener('DOMContentLoaded', function() {
-      const savedColor = localStorage.getItem('bgColor');
-      const savedTextColor = localStorage.getItem('textColor');
-      const savedGradient = localStorage.getItem('bgGradient');
-      
-      if (savedGradient) {
-        document.body.style.background = savedGradient;
-        document.body.style.color = 'white';
-      } else if (savedColor) {
-        document.body.style.background = savedColor;
-        document.body.style.color = savedTextColor || '#333';
-        document.body.style.backgroundImage = 'none';
-      }
-      
-      // Social media link update
-      updateSocialLinks();
-    });
-    
-    function showNotification(message) {
-      const existingNotification = document.querySelector('.notification');
-      if (existingNotification) {
-        existingNotification.remove();
-      }
-      
-      const notification = document.createElement('div');
-      notification.className = 'notification';
-      notification.innerHTML = message;
-      notification.style.cssText = `
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background: #1f3c88;
-        color: white;
-        padding: 12px 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        z-index: 10000;
-        font-size: 14px;
-        animation: slideIn 0.3s ease;
-      `;
-      
-      document.body.appendChild(notification);
-      
-      setTimeout(() => {
-        notification.style.animation = 'slideOut 0.3s ease';
-        setTimeout(() => {
-          notification.remove();
-        }, 300);
-      }, 3000);
-    }
-    
-
- 
-     
-  
-  <div class="footer">
-    &copy; 2025 Өсөхбаяр. Бүх эрх хуулиар хамгаалагдсан.
-  </div>
-
-  <script>
-    // Фон өнгө өөрчлөх функц
-    function changeBackgroundColor(color, textColor) {
-      document.body.style.background = color;
-      document.body.style.color = textColor;
-      document.body.style.backgroundImage = 'none';
-      
-      localStorage.setItem('bgColor', color);
-      localStorage.setItem('textColor', textColor);
-      localStorage.removeItem('bgGradient');
-      
-      showNotification('Фон өнгө өөрчлөгдлөө!');
-    }
-    
-    function changeBackgroundGradient() {
-      const gradients = [
-        'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-        'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-        'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-        'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
-        'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'
-      ];
-      
-      const randomGradient = gradients[Math.floor(Math.random() * gradients.length)];
-      document.body.style.background = randomGradient;
-      document.body.style.color = 'white';
-      
-      localStorage.setItem('bgGradient', randomGradient);
-      localStorage.removeItem('bgColor');
-      localStorage.removeItem('textColor');
-      
-      showNotification('Gradient фон сонгогдлоо!');
-    }
-    
-    document.addEventListener('DOMContentLoaded', function() {
-      const savedColor = localStorage.getItem('bgColor');
-      const savedTextColor = localStorage.getItem('textColor');
-      const savedGradient = localStorage.getItem('bgGradient');
-      
-      if (savedGradient) {
-        document.body.style.background = savedGradient;
-        document.body.style.color = 'white';
-      } else if (savedColor) {
-        document.body.style.background = savedColor;
-        document.body.style.color = savedTextColor || '#333';
-        document.body.style.backgroundImage = 'none';
-      }
-      
-      // Social media link update
-      updateSocialLinks();
-    });
-    
-    function showNotification(message) {
-      const existingNotification = document.querySelector('.notification');
-      if (existingNotification) {
-        existingNotification.remove();
-      }
-      
-      const notification = document.createElement('div');
-      notification.className = 'notification';
-      notification.innerHTML = message;
-      notification.style.cssText = `
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background: #1f3c88;
-        color: white;
-        padding: 12px 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        z-index: 10000;
-        font-size: 14px;
-        animation: slideIn 0.3s ease;
-      `;
-      
-      document.body.appendChild(notification);
-      
-      setTimeout(() => {
-        notification.style.animation = 'slideOut 0.3s ease';
-        setTimeout(() => {
-          notification.remove();
-        }, 300);
-      }, 3000);
-    }
-    
-  
   </script>
 </body>
 </html>
