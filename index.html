@@ -162,6 +162,23 @@
       box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
     }
     
+    /* Волейболын зураг */
+    .volleyball-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 10px;
+      object-fit: cover;
+      display: block;
+      margin: 20px auto;
+      border: 3px solid #1f3c88;
+      box-shadow: 0 3px 10px rgba(31, 60, 136, 0.2);
+    }
+    
+    .gradient-mode .volleyball-img {
+      border: 3px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);
+    }
+    
     .contact-info {
       display: flex;
       justify-content: space-between;
@@ -472,6 +489,11 @@
         width: 150px;
         height: 150px;
       }
+      
+      .volleyball-img {
+        width: 120px;
+        height: 120px;
+      }
     }
   </style>
 </head>
@@ -507,23 +529,23 @@
         <div class="color-label">Ягаан</div>
       </div>
       <div>
-        <div class="color-btn" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);" onclick="changeBackgroundGradient('#667eea', '#764ba2', 'Professional')"></div>
+        <div class="color-btn" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);" onclick="changeBackgroundGradient('professional')"></div>
         <div class="color-label">Профессионал</div>
       </div>
       <div>
-        <div class="color-btn" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);" onclick="changeBackgroundGradient('#43e97b', '#38f9d7', 'Tech')"></div>
+        <div class="color-btn" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);" onclick="changeBackgroundGradient('tech')"></div>
         <div class="color-label">Технологи</div>
       </div>
       <div>
-        <div class="color-btn" style="background: linear-gradient(135deg, #FF5E62 0%, #FF9966 100%);" onclick="changeBackgroundGradient('#FF5E62', '#FF9966', 'Creative')"></div>
+        <div class="color-btn" style="background: linear-gradient(135deg, #FF5E62 0%, #FF9966 100%);" onclick="changeBackgroundGradient('creative')"></div>
         <div class="color-label">Бүтээлч</div>
       </div>
       <div>
-        <div class="color-btn" style="background: linear-gradient(135deg, #4776E6 0%, #8E54E9 100%);" onclick="changeBackgroundGradient('#4776E6', '#8E54E9', 'Modern')"></div>
+        <div class="color-btn" style="background: linear-gradient(135deg, #4776E6 0%, #8E54E9 100%);" onclick="changeBackgroundGradient('modern')"></div>
         <div class="color-label">Орчин үеийн</div>
       </div>
       <div>
-        <div class="color-btn" style="background: linear-gradient(135deg, #00b09b 0%, #96c93d 100%);" onclick="changeBackgroundGradient('#00b09b', '#96c93d', 'Nature')"></div>
+        <div class="color-btn" style="background: linear-gradient(135deg, #00b09b 0%, #96c93d 100%);" onclick="changeBackgroundGradient('nature')"></div>
         <div class="color-label">Байгаль</div>
       </div>
     </div>
@@ -559,8 +581,16 @@
            alt="Өсөхбаяр - IT инженер, веб хөгжүүлэгч" 
            class="profile-img">
       
+      <!-- Волейболын зураг -->
+      <div style="text-align: center; margin: 20px 0;">
+        <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" 
+             alt="Волейбол тоглолт" 
+             class="volleyball-img">
+        <p style="color: #666; font-style: italic; margin-top: 10px;">Волейбол - 1-р зэрэг</p>
+      </div>
+      
       <h2 id="about-mn">Миний тухай</h2>
-      <p id="about-text-mn">Сайн байна уу? Намайг Өсөхбаяр гэдэг. Би 3+ жилийн туршлагатай веб хөгжүүлэгч, IT инженер. Технологийн шинэчлэл, код бичих урлагийг ихэд сонирхдог. Ухаалаг, шинэлэг шийдлүүдийг хэрэгжүүлэх нь миний хамгийн дуртай зүйл.</p>
+      <p id="about-text-mn">Сайн байна уу? Намайг Өсөхбаяр гэдэг. Би 3+ жилийн туршлагатай веб хөгжүүлэгч, IT инженер. Технологийн шинэчлэл, код бичих урлагийг ихэд сонирхдог. Ухаалаг, шинэлэг шийдлүүдийг хэрэгжүүлэх нь миний хамгийн дуртай зүйл. Мөн би волейболын 1-р зэрэгтэй тамирчин.</p>
     </div>
     
     <div class="section">
@@ -710,8 +740,16 @@
            alt="Usukhbayar - IT Engineer, Web Developer" 
            class="profile-img">
       
+      <!-- Волейболын зураг -->
+      <div style="text-align: center; margin: 20px 0;">
+        <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" 
+             alt="Volleyball game" 
+             class="volleyball-img">
+        <p style="color: #666; font-style: italic; margin-top: 10px;">Volleyball - 1st Degree</p>
+      </div>
+      
       <h2 id="about-en">About Me</h2>
-      <p id="about-text-en">Hello! My name is Usukhbayar. I am a web developer and IT engineer with 3+ years of experience. I am passionate about technological innovation and the art of coding. Implementing smart, innovative solutions is what I enjoy the most.</p>
+      <p id="about-text-en">Hello! My name is Usukhbayar. I am a web developer and IT engineer with 3+ years of experience. I am passionate about technological innovation and the art of coding. Implementing smart, innovative solutions is what I enjoy the most. I am also a 1st degree volleyball player.</p>
     </div>
     
     <div class="section">
@@ -910,44 +948,70 @@
       }
     }
     
-    // Фон өнгө өөрчлөх функц
+    // Фон өнгө өөрчлөх функц - ЗАСАГДСАН
     function changeBackgroundColor(color, textColor) {
       document.body.style.background = color;
       document.body.style.color = textColor;
       document.body.style.backgroundImage = 'none';
       document.body.classList.remove('gradient-mode');
       
+      // LocalStorage хадгалах
       localStorage.setItem('bgColor', color);
       localStorage.setItem('textColor', textColor);
       localStorage.removeItem('bgGradient');
-      localStorage.removeItem('bgColor1');
-      localStorage.removeItem('bgColor2');
+      localStorage.removeItem('bgTheme');
       
       showNotification('Фон өнгө өөрчлөгдлөө!');
     }
     
-    // Gradient фон өөрчлөх
-    function changeBackgroundGradient(color1, color2, themeName) {
-      const gradient = `linear-gradient(135deg, ${color1} 0%, ${color2} 100%)`;
+    // Gradient фон өөрчлөх функц - ШИНЭЧЛЭГДСЭН
+    function changeBackgroundGradient(theme) {
+      let gradient, themeName;
+      
+      // Theme-ээс хамааран gradient тодорхойлох
+      switch(theme) {
+        case 'professional':
+          gradient = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+          themeName = 'Профессионал';
+          break;
+        case 'tech':
+          gradient = 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)';
+          themeName = 'Технологи';
+          break;
+        case 'creative':
+          gradient = 'linear-gradient(135deg, #FF5E62 0%, #FF9966 100%)';
+          themeName = 'Бүтээлч';
+          break;
+        case 'modern':
+          gradient = 'linear-gradient(135deg, #4776E6 0%, #8E54E9 100%)';
+          themeName = 'Орчин үеийн';
+          break;
+        case 'nature':
+          gradient = 'linear-gradient(135deg, #00b09b 0%, #96c93d 100%)';
+          themeName = 'Байгаль';
+          break;
+        default:
+          gradient = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+          themeName = 'Профессионал';
+      }
+      
+      // Фон өөрчлөх
       document.body.style.background = gradient;
       document.body.style.backgroundImage = 'none';
       document.body.style.color = '#ffffff';
       document.body.classList.add('gradient-mode');
       
+      // LocalStorage хадгалах
       localStorage.setItem('bgGradient', gradient);
-      localStorage.setItem('bgColor1', color1);
-      localStorage.setItem('bgColor2', color2);
+      localStorage.setItem('bgTheme', theme);
       localStorage.removeItem('bgColor');
       localStorage.setItem('textColor', '#ffffff');
       
-      // Theme name байвал түүнийг харуулна
-      const message = themeName ? 
-        `${themeName} Gradient сонгогдлоо!` : 
-        'Gradient фон сонгогдлоо!';
-      showNotification(message);
+      // Мэссэж харуулах
+      showNotification(`${themeName} Gradient сонгогдлоо!`);
     }
     
-    // Мэссэж харуулах
+    // Мэссэж харуулах функц
     function showNotification(message) {
       const existingNotification = document.querySelector('.notification');
       if (existingNotification) {
@@ -1048,6 +1112,29 @@
         }
       }, 1000);
     }
+    
+    // Тестийн хувьд: Фон өөрчлөх функцүүд ажиллаж байгаа эсэхийг шалгах
+    console.log('Фон өөрчлөх функцууд бэлэн боллоо:');
+    console.log('- changeBackgroundColor()');
+    console.log('- changeBackgroundGradient()');
+    
+    // Асуудал байвал энэ функцийг ашиглан шалгана уу
+    function testBackgroundFunctions() {
+      console.log('Testing background functions...');
+      changeBackgroundColor('#f0f4f8', '#333');
+      setTimeout(() => {
+        changeBackgroundGradient('professional');
+      }, 2000);
+      setTimeout(() => {
+        changeBackgroundGradient('tech');
+      }, 4000);
+      setTimeout(() => {
+        changeBackgroundColor('#f0f9f0', '#333');
+      }, 6000);
+    }
+    
+    // Автомат тест хийх (optional)
+    // setTimeout(testBackgroundFunctions, 3000);
   </script>
 </body>
 </html>
