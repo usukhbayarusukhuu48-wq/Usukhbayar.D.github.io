@@ -2,7 +2,8 @@
 <html lang="mn">
 <head>
   <meta charset="UTF-8">
-  <title>Usukhbayar's Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Өсөхбаярын Portfolio</title>
   <style>
     body { 
       font-family: "Arial", sans-serif;
@@ -434,161 +435,6 @@
 
   <!-- Монгол хэлний контент -->
   <div id="content-mn">
-    <!-- Контентыг энд оруулна (өмнөх кодтой ижил) -->
-  </div>
-
-  <!-- Англи хэлний контент -->
-  <div id="content-en" style="display: none;">
-    <!-- Контентыг энд оруулна (өмнөх кодтой ижил) -->
-  </div>
-
-  <script>
-    // Welcome мэссэж харуулах (зөвхөн анх удаа)
-    document.addEventListener('DOMContentLoaded', function() {
-      const hasVisited = localStorage.getItem('hasVisited');
-      
-      if (!hasVisited) {
-        document.getElementById('welcomeMessage').style.display = 'block';
-      } else {
-        // Өмнө сонгосон хэлийг сэргээх
-        const savedLang = localStorage.getItem('selectedLanguage') || 'mn';
-        switchLanguage(savedLang, true);
-        
-        // Өмнө сонгосон фоныг сэргээх
-        const savedBgColor = localStorage.getItem('bgColor');
-        const savedBgGradient = localStorage.getItem('bgGradient');
-        const savedTextColor = localStorage.getItem('textColor');
-        
-        if (savedBgGradient) {
-          // Gradient фон сэргээх
-          document.body.style.background = savedBgGradient;
-          document.body.classList.add('gradient-mode');
-          document.body.style.color = savedTextColor || '#ffffff';
-        } else if (savedBgColor) {
-          // Энгийн фон сэргээх
-          document.body.style.background = savedBgColor;
-          document.body.classList.remove('gradient-mode');
-          document.body.style.color = savedTextColor || '#333';
-        }
-      }
-    });
-    
-    // Хэл сонгох (welcome мэссэжээс)
-    function selectLanguage(lang) {
-      localStorage.setItem('selectedLanguage', lang);
-      localStorage.setItem('hasVisited', 'true');
-      document.getElementById('welcomeMessage').style.display = 'none';
-      switchLanguage(lang, true);
-    }
-    
-    // Хэл солих функц
-    function switchLanguage(lang, initial = false) {
-      // Товчнуудыг актив болгох
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.remove('active');
-      });
-      
-      if (lang === 'mn') {
-        document.querySelector('.lang-btn[onclick*="mn"]').classList.add('active');
-        document.getElementById('content-mn').style.display = 'block';
-        document.getElementById('content-en').style.display = 'none';
-        document.title = 'Өсөхбаярын танилцуулга';
-        
-        if (!initial) {
-          localStorage.setItem('selectedLanguage', 'mn');
-          showNotification('Хэл Монгол боллоо!');
-        }
-      } else {
-        document.querySelector('.lang-btn[onclick*="en"]').classList.add('active');
-        document.getElementById('content-mn').style.display = 'none';
-        document.getElementById('content-en').style.display = 'block';
-        document.title = 'Usukhbayar\'s Portfolio';
-        
-        if (!initial) {
-          localStorage.setItem('selectedLanguage', 'en');
-          showNotification('Language changed to English!');
-        }
-      }
-    }
-    
-    // Фон өнгө өөрчлөх функц
-    function changeBackgroundColor(color, textColor) {
-      document.body.style.background = color;
-      document.body.style.color = textColor;
-      document.body.style.backgroundImage = 'none';
-      document.body.classList.remove('gradient-mode');
-      
-      localStorage.setItem('bgColor', color);
-      localStorage.setItem('textColor', textColor);
-      localStorage.removeItem('bgGradient');
-      localStorage.removeItem('bgColor1');
-      localStorage.removeItem('bgColor2');
-      
-      showNotification('Фон өнгө өөрчлөгдлөө!');
-    }
-    
-    // Gradient фон өөрчлөх
-    function changeBackgroundGradient(color1, color2) {
-      const gradient = `linear-gradient(135deg, ${color1} 0%, ${color2} 100%)`;
-      document.body.style.background = gradient;
-      document.body.style.backgroundImage = 'none';
-      document.body.style.color = '#ffffff';
-      document.body.classList.add('gradient-mode');
-      
-      localStorage.setItem('bgGradient', gradient);
-      localStorage.setItem('bgColor1', color1);
-      localStorage.setItem('bgColor2', color2);
-      localStorage.removeItem('bgColor');
-      localStorage.setItem('textColor', '#ffffff');
-      
-      showNotification('Gradient фон сонгогдлоо!');
-    }
-    
-    // Мэссэж харуулах
-    function showNotification(message) {
-      const existingNotification = document.querySelector('.notification');
-      if (existingNotification) {
-        existingNotification.remove();
-      }
-      
-      const notification = document.createElement('div');
-      notification.className = 'notification';
-      notification.textContent = message;
-      notification.style.cssText = `
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background: #1f3c88;
-        color: white;
-        padding: 12px 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        z-index: 10000;
-        font-size: 14px;
-        animation: slideIn 0.3s ease;
-      `;
-      
-      document.body.appendChild(notification);
-      
-      setTimeout(() => {
-        notification.style.animation = 'slideOut 0.3s ease';
-        setTimeout(() => {
-          notification.remove();
-        }, 300);
-      }, 2000);
-    }
-     <!-- Welcome мэссэж -->
-  <div id="welcomeMessage" class="welcome-message">
-    <h3 style="color: #1f3c88;">Welcome to my portfolio!</h3>
-    <p>Please select your preferred language:</p>
-    <div class="welcome-buttons">
-      <button class="lang-btn active" onclick="selectLanguage('mn')" style="padding: 10px 20px;">🇲🇳 Монгол</button>
-      <button class="lang-btn" onclick="selectLanguage('en')" style="padding: 10px 20px;">🇺🇸 English</button>
-    </div>
-  </div>
-
-  <!-- Монгол хэлний контент -->
-  <div id="content-mn">
     <h1 id="title-mn">Өсөхбаяр</h1>
     <div class="subtitle" id="subtitle-mn">Сүлжээний инженер, программист, веб хөгжүүлэгч</div>
     
@@ -728,7 +574,7 @@
     </div>
   </div>
 
-  <!-- Англи хэлний контент (анхны үед харагдахгүй) -->
+  <!-- Англи хэлний контент -->
   <div id="content-en" style="display: none;">
     <h1 id="title-en">Usukhbayar</h1>
     <div class="subtitle" id="subtitle-en">Network Engineer, Programmer, Web Developer</div>
@@ -880,6 +726,23 @@
         // Өмнө сонгосон хэлийг сэргээх
         const savedLang = localStorage.getItem('selectedLanguage') || 'mn';
         switchLanguage(savedLang, true);
+        
+        // Өмнө сонгосон фоныг сэргээх
+        const savedBgColor = localStorage.getItem('bgColor');
+        const savedBgGradient = localStorage.getItem('bgGradient');
+        const savedTextColor = localStorage.getItem('textColor');
+        
+        if (savedBgGradient) {
+          // Gradient фон сэргээх
+          document.body.style.background = savedBgGradient;
+          document.body.classList.add('gradient-mode');
+          document.body.style.color = savedTextColor || '#ffffff';
+        } else if (savedBgColor) {
+          // Энгийн фон сэргээх
+          document.body.style.background = savedBgColor;
+          document.body.classList.remove('gradient-mode');
+          document.body.style.color = savedTextColor || '#333';
+        }
       }
     });
     
@@ -921,9 +784,48 @@
       }
     }
     
+    // Фон өнгө өөрчлөх функц
+    function changeBackgroundColor(color, textColor) {
+      document.body.style.background = color;
+      document.body.style.color = textColor;
+      document.body.style.backgroundImage = 'none';
+      document.body.classList.remove('gradient-mode');
+      
+      localStorage.setItem('bgColor', color);
+      localStorage.setItem('textColor', textColor);
+      localStorage.removeItem('bgGradient');
+      localStorage.removeItem('bgColor1');
+      localStorage.removeItem('bgColor2');
+      
+      showNotification('Фон өнгө өөрчлөгдлөө!');
+    }
+    
+    // Gradient фон өөрчлөх
+    function changeBackgroundGradient(color1, color2) {
+      const gradient = `linear-gradient(135deg, ${color1} 0%, ${color2} 100%)`;
+      document.body.style.background = gradient;
+      document.body.style.backgroundImage = 'none';
+      document.body.style.color = '#ffffff';
+      document.body.classList.add('gradient-mode');
+      
+      localStorage.setItem('bgGradient', gradient);
+      localStorage.setItem('bgColor1', color1);
+      localStorage.setItem('bgColor2', color2);
+      localStorage.removeItem('bgColor');
+      localStorage.setItem('textColor', '#ffffff');
+      
+      showNotification('Gradient фон сонгогдлоо!');
+    }
+    
     // Мэссэж харуулах
     function showNotification(message) {
+      const existingNotification = document.querySelector('.notification');
+      if (existingNotification) {
+        existingNotification.remove();
+      }
+      
       const notification = document.createElement('div');
+      notification.className = 'notification';
       notification.textContent = message;
       notification.style.cssText = `
         position: fixed;
@@ -947,36 +849,6 @@
           notification.remove();
         }, 300);
       }, 2000);
-    }
-    
-    // CSS animation нэмэх
-    const style = document.createElement('style');
-    style.textContent = `
-      @keyframes slideIn {
-        from { transform: translateX(100%); opacity: 0; }
-        to { transform: translateX(0); opacity: 1; }
-      }
-      @keyframes slideOut {
-        from { transform: translateX(0); opacity: 1; }
-        to { transform: translateX(100%); opacity: 0; }
-      }
-    `;
-    document.head.appendChild(style);
-    
-    // Хэрэглэгч ирэхэд өөрийн хэлээр мэссэж харуулах
-    const browserLang = navigator.language || navigator.userLanguage;
-    if (browserLang.startsWith('mn')) {
-      setTimeout(() => {
-        if (!localStorage.getItem('hasVisited')) {
-          showNotification('Тавтай морил! Монгол хэлээр үзэж байна.');
-        }
-      }, 1000);
-    } else {
-      setTimeout(() => {
-        if (!localStorage.getItem('hasVisited')) {
-          showNotification('Welcome! Viewing in English.');
-        }
-      }, 1000);
     }
     
     // CSS animation нэмэх
@@ -1030,21 +902,6 @@
         }
       }, 1000);
     }
-    
-    // Фон өнгө сонгох товчнуудыг шалгах
-    console.log('Фон өнгө сонгох товчнууд идэвхтэй байна.');
-    
-    // Фон өөрчлөх функц тест
-    function testBackgroundFunction() {
-      console.log('Testing background change function...');
-      changeBackgroundColor('#f0f4f8', '#333');
-      setTimeout(() => {
-        changeBackgroundGradient('#667eea', '#764ba2');
-      }, 1000);
-    }
-    
-    // Автомат тест (optional)
-    // setTimeout(testBackgroundFunction, 2000);
   </script>
 </body>
 </html>
