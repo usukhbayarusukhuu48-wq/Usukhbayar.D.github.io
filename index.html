@@ -1,15 +1,22 @@
+html
 <!DOCTYPE html>
 <html lang="mn">
 <head>
   <meta charset="UTF-8">
   <title>Өсөхбаярын танилцуулга</title>
   <style>
+   
     body { 
       font-family: "Arial", sans-serif;
       line-height: 1.6;
       max-width: 900px;
       margin: 50px auto;
-      background-color: #f0f4f8;
+      
+   
+    
+      background-color: #f0f9f0;
+      
+      
       color: #333;
       padding: 30px;
       border-radius: 10px;
@@ -135,24 +142,42 @@
       border-top: 1px solid #ddd;
     }
     
-    /* Зураг шалгах хэсэг */
-    .image-status {
+    /* Фон сонгох товчнууд */
+    .color-picker {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    
+    .color-options {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    
+    .color-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 2px solid white;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    
+    .color-btn:hover {
+      transform: scale(1.2);
+    }
+    
+    .color-label {
+      font-size: 12px;
       text-align: center;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 5px;
-    }
-    
-    .image-success {
-      background-color: #d4edda;
-      color: #155724;
-      border: 1px solid #c3e6cb;
-    }
-    
-    .image-error {
-      background-color: #f8d7da;
-      color: #721c24;
-      border: 1px solid #f5c6cb;
+      margin-top: 5px;
     }
     
     @media (max-width: 768px) {
@@ -168,25 +193,57 @@
       h1 {
         font-size: 32px;
       }
+      
+      .color-picker {
+        position: static;
+        margin: 20px auto;
+        max-width: 300px;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Фон өнгө сонгох хэсэг -->
+  <div class="color-picker">
+    <strong>🎨 Фон өнгө сонгох:</strong>
+    <div class="color-options">
+      <div>
+        <div class="color-btn" style="background-color: #f0f4f8;" onclick="changeBackgroundColor('#f0f4f8')"></div>
+        <div class="color-label">Цэнхэр</div>
+      </div>
+      <div>
+        <div class="color-btn" style="background-color: #f8fafc;" onclick="changeBackgroundColor('#f8fafc')"></div>
+        <div class="color-label">Цагаан</div>
+      </div>
+      <div>
+        <div class="color-btn" style="background-color: #f0f9f0;" onclick="changeBackgroundColor('#f0f9f0')"></div>
+        <div class="color-label">Ногоон</div>
+      </div>
+      <div>
+        <div class="color-btn" style="background-color: #fffaf0;" onclick="changeBackgroundColor('#fffaf0')"></div>
+        <div class="color-label">Шаргал</div>
+      </div>
+      <div>
+        <div class="color-btn" style="background-color: #fdf2f8;" onclick="changeBackgroundColor('#fdf2f8')"></div>
+        <div class="color-label">Ягаан</div>
+      </div>
+      <div>
+        <div class="color-btn" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);" onclick="changeBackgroundGradient()"></div>
+        <div class="color-label">Gradient</div>
+      </div>
+    </div>
+  </div>
+
   <h1>Өсөхбаяр</h1>
-  <div class="subtitle">Мэргэжлийн программист, веб хөгжүүлэгч</div>
+  <div class="subtitle">Сүлжээний инженер, программист, веб хөгжүүлэгч</div>
   
   <div class="section">
-
+    <!-- ТАНЫ ЗУРГИЙН ЗАМ -->
     <img src="images/0-02-06-2777ad3a2358edb41caa23093f44ef9b26cbc5dc89f1fbb152997d565d10a056_e7749e52da2746d5.jpg" 
          alt="Өсөхбаярын зураг" 
          class="profile-img"
-         id="myPhoto"
-         onerror="handleImageError()">
+         onerror="this.src='https://via.placeholder.com/200x200/1f3c88/ffffff?text=Өсөхбаяр'">
     
-    <!-- Зургийн статус харуулах -->
-    <div id="imageStatus" class="image-status" style="display: none;">
-      <p id="statusText"></p>
-    </div>
     <h2>Миний тухай</h2>
     <p>Сайн байна уу? Намайг Өсөхбаяр гэдэг. Би 3+ жилийн туршлагатай веб хөгжүүлэгч, IT инженер. Технологийн шинэчлэл, код бичих урлагийг ихэд сонирхдог.</p>
   </div>
@@ -207,6 +264,10 @@
       <span class="skill">UI/UX дизайн</span>
       <span class="skill">Агуулгын удирдлагын систем</span>
     </div>
+     <h2>Сонирхол ур чадвар</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <strong>Воллейбол</strong> - 1-р зэрэг
   </div>
   
   <div class="section">
@@ -215,12 +276,15 @@
       <div class="timeline-item">
         <div class="year">2025 - Одоо</div>
         <strong>ТИ АЙ ЛОЖИСТИК</strong> - IT инженер
-        <p>Системүүдийн хөгжүүлэлт, Интернет аюулгүй байдал,Интернетийн хэвийн үйл ажиллагаа</p>
+        <p>Системүүдийн хөгжүүлэлт, Интернет аюулгүй байдал, Интернетийн хэвийн үйл ажиллагаа</p>
       </div>
       <div class="timeline-item">
         <div class="year">2024 - 2025</div>
         <strong>Глобал Телеком.</strong> - Веб хөгжүүлэгч
         <p>Корпорацийн вэбсайт, электрон худалдааны платформуудыг хөгжүүлэх, дэмжих. Интернет аюулгүй байдал, Интернетийн хэвийн үйл ажиллагаа.</p>
+      </div>
+       <strong>Юнител туслан гүйцэтгэгч Батхолбоос Цамхаг .</strong> - Холбооны инженер
+        <p>Үүрэн холбооны төхөөрөмжийн угсралт,тохиргоо,засвар үйлчилгээ.</p>
       </div>
     </div>
   </div>
@@ -229,7 +293,7 @@
     <h2>Боловсрол</h2>
     <div class="timeline">
       <div class="timeline-item">
-        <div class="year">2014 - 2019</div>
+        <div class="year">2019 - 2014</div>
         <strong>Монгол Улсын Их Сургууль</strong> 
         <p>Сүлжээний Технологи чиглэлээр дээд боловсрол эзэмшсэн.</p>
       </div>
