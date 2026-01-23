@@ -66,7 +66,7 @@
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
       z-index: 1000;
-      max-width: 200px;
+      max-width: 220px;
     }
     
     .color-options {
@@ -77,22 +77,25 @@
     }
     
     .color-btn {
-      width: 25px;
-      height: 25px;
+      width: 30px;
+      height: 30px;
       border-radius: 50%;
       border: 2px solid white;
       cursor: pointer;
-      transition: transform 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
     
     .color-btn:hover {
       transform: scale(1.2);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.3);
     }
     
     .color-label {
-      font-size: 11px;
+      font-size: 10px;
       text-align: center;
       margin-top: 3px;
+      font-weight: 500;
     }
 
     h1 { 
@@ -127,6 +130,7 @@
       backdrop-filter: blur(10px);
       color: #ffffff;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
     
     h2 {
@@ -139,6 +143,7 @@
     .gradient-mode h2 {
       color: #ffffff;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+      border-left-color: #ffffff;
     }
     
     .profile-img {
@@ -150,6 +155,11 @@
       margin: 0 auto 25px;
       border: 5px solid #1f3c88;
       box-shadow: 0 5px 15px rgba(31, 60, 136, 0.3);
+    }
+    
+    .gradient-mode .profile-img {
+      border: 5px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
     }
     
     .contact-info {
@@ -222,11 +232,17 @@
     .gradient-mode .social-icon {
       background: rgba(255, 255, 255, 0.2);
       color: #ffffff;
+      backdrop-filter: blur(5px);
     }
     
     .social-icon:hover {
       transform: translateY(-5px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .gradient-mode .social-icon:hover {
+      background: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
     }
     
     .social-icon svg {
@@ -261,6 +277,7 @@
       background-color: rgba(255, 255, 255, 0.2);
       color: #ffffff;
       border-color: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(5px);
     }
     
     .skill:hover {
@@ -271,6 +288,7 @@
     
     .gradient-mode .skill:hover {
       background-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
     }
     
     .timeline {
@@ -303,6 +321,7 @@
     
     .gradient-mode .timeline-item:before {
       background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     }
     
     .year {
@@ -314,6 +333,7 @@
     
     .gradient-mode .year {
       color: #ffffff;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.5);
     }
     
     .footer {
@@ -344,6 +364,7 @@
       text-align: center;
       max-width: 400px;
       display: none;
+      backdrop-filter: blur(10px);
     }
     
     .welcome-buttons {
@@ -384,6 +405,7 @@
       background: rgba(255, 255, 255, 0.2);
       color: #ffffff;
       border-color: #ffffff;
+      backdrop-filter: blur(5px);
     }
     
     .gradient-mode .cv-btn:hover {
@@ -485,12 +507,24 @@
         <div class="color-label">Ягаан</div>
       </div>
       <div>
-        <div class="color-btn" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);" onclick="changeBackgroundGradient('#667eea', '#764ba2')"></div>
-        <div class="color-label">Gradient 1</div>
+        <div class="color-btn" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);" onclick="changeBackgroundGradient('#667eea', '#764ba2', 'Professional')"></div>
+        <div class="color-label">Профессионал</div>
       </div>
       <div>
-        <div class="color-btn" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);" onclick="changeBackgroundGradient('#43e97b', '#38f9d7')"></div>
-        <div class="color-label">Gradient 2</div>
+        <div class="color-btn" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);" onclick="changeBackgroundGradient('#43e97b', '#38f9d7', 'Tech')"></div>
+        <div class="color-label">Технологи</div>
+      </div>
+      <div>
+        <div class="color-btn" style="background: linear-gradient(135deg, #FF5E62 0%, #FF9966 100%);" onclick="changeBackgroundGradient('#FF5E62', '#FF9966', 'Creative')"></div>
+        <div class="color-label">Бүтээлч</div>
+      </div>
+      <div>
+        <div class="color-btn" style="background: linear-gradient(135deg, #4776E6 0%, #8E54E9 100%);" onclick="changeBackgroundGradient('#4776E6', '#8E54E9', 'Modern')"></div>
+        <div class="color-label">Орчин үеийн</div>
+      </div>
+      <div>
+        <div class="color-btn" style="background: linear-gradient(135deg, #00b09b 0%, #96c93d 100%);" onclick="changeBackgroundGradient('#00b09b', '#96c93d', 'Nature')"></div>
+        <div class="color-label">Байгаль</div>
       </div>
     </div>
   </div>
@@ -566,7 +600,7 @@
         </div>
         <div class="timeline-item">
           <div class="year">2024 - 2025</div>
-          <strong>Глобал Телеком.</strong> - IT инженер
+          <strong>Глобал Телеком.</strong> - Веб хөгжүүлэгч
           <p id="exp2-mn">Корпорацийн вэбсайт, электрон худалдааны платформуудыг хөгжүүлэх, дэмжих. Интернет аюулгүй байдал, Интернетийн хэвийн үйл ажиллагаа.</p>
         </div>
         <div class="timeline-item">
@@ -637,7 +671,7 @@
                 <stop offset="100%" style="stop-color:#E1306C;stop-opacity:1" />
               </linearGradient>
             </defs>
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0" />
           </svg>
           <span class="social-label">Instagram</span>
         </a>
@@ -717,7 +751,7 @@
         </div>
         <div class="timeline-item">
           <div class="year">2024 - 2025</div>
-          <strong>Global Telecom.</strong> -  IT Engineer
+          <strong>Global Telecom.</strong> - Web Developer
           <p id="exp2-en">Development and maintenance of corporate websites and e-commerce platforms. Internet security and normal internet operation.</p>
         </div>
         <div class="timeline-item">
@@ -893,7 +927,7 @@
     }
     
     // Gradient фон өөрчлөх
-    function changeBackgroundGradient(color1, color2) {
+    function changeBackgroundGradient(color1, color2, themeName) {
       const gradient = `linear-gradient(135deg, ${color1} 0%, ${color2} 100%)`;
       document.body.style.background = gradient;
       document.body.style.backgroundImage = 'none';
@@ -906,7 +940,11 @@
       localStorage.removeItem('bgColor');
       localStorage.setItem('textColor', '#ffffff');
       
-      showNotification('Gradient фон сонгогдлоо!');
+      // Theme name байвал түүнийг харуулна
+      const message = themeName ? 
+        `${themeName} Gradient сонгогдлоо!` : 
+        'Gradient фон сонгогдлоо!';
+      showNotification(message);
     }
     
     // Мэссэж харуулах
@@ -958,6 +996,7 @@
       /* Gradient режимд текстийн стил */
       .gradient-mode {
         color: #ffffff !important;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.5);
       }
       
       .gradient-mode h1,
@@ -967,14 +1006,29 @@
       .gradient-mode span,
       .gradient-mode div:not(.section):not(.skill):not(.hobby-item):not(.social-icon) {
         color: #ffffff !important;
-        text-shadow: 1px 1px 3px rgba(0,0,0,0.5) !important;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.5) !important;
       }
       
       .gradient-mode .section h2,
       .gradient-mode .section p,
       .gradient-mode .section span:not(.skill):not(.hobby-item) {
         color: #ffffff !important;
-        text-shadow: 1px 1px 3px rgba(0,0,0,0.5) !important;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.5) !important;
+      }
+      
+      /* Gradient buttons эффект */
+      .color-btn {
+        transition: all 0.3s ease;
+      }
+      
+      .color-btn[style*="gradient"] {
+        background-size: 100% 100% !important;
+        transition: background-size 0.3s ease, transform 0.3s ease;
+      }
+      
+      .color-btn[style*="gradient"]:hover {
+        background-size: 150% 150% !important;
+        transform: scale(1.1);
       }
     `;
     document.head.appendChild(style);
