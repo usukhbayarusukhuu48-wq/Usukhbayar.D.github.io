@@ -733,74 +733,7 @@
       }, 3000);
     }
     
-    // Social media холбоос өөрчлөх
-    function updateSocialLinks() {
-      // Та өөрийн холбоосуудыг энд оруулна уу
-      const instagramLink = 'https://instagram.com/таны_инстаграм_нэр';
-      const facebookLink = 'https://facebook.com/таны_фэйсбүүк_нэр';
-      const twitterLink = 'https://twitter.com/таны_твиттер_нэр';
-      
-      // LocalStorage-с хадгалсан холбоосуудыг шалгах
-      const savedInstagram = localStorage.getItem('instagramLink');
-      const savedFacebook = localStorage.getItem('facebookLink');
-      const savedTwitter = localStorage.getItem('twitterLink');
-      
-      // Холбоосыг өөрчлөх
-      document.querySelector('a[href*="instagram"]').href = savedInstagram || instagramLink;
-      document.querySelector('a[href*="facebook"]').href = savedFacebook || facebookLink;
-      document.querySelector('a[href*="twitter"]').href = savedTwitter || twitterLink;
-    }
-    
-    // Social media холбоос өөрчлөх form нэмэх (optional)
-    function addSocialLinkEditor() {
-      const editor = document.createElement('div');
-      editor.innerHTML = `
-        <div style="position:fixed; bottom:10px; left:10px; background:white; padding:10px; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,0.1); z-index:999; display:none;" id="socialEditor">
-          <strong>Сошиал холбоос өөрчлөх:</strong>
-          <div style="margin-top:10px;">
-            <input type="text" id="instaInput" placeholder="Instagram холбоос" style="width:100%; margin:5px 0; padding:5px;">
-            <input type="text" id="fbInput" placeholder="Facebook холбоос" style="width:100%; margin:5px 0; padding:5px;">
-            <button onclick="saveSocialLinks()" style="background:#1f3c88; color:white; border:none; padding:5px 10px; border-radius:4px; cursor:pointer;">Хадгалах</button>
-          </div>
-        </div>
-      `;
-      document.body.appendChild(editor);
-    }
-    
-    function saveSocialLinks() {
-      const instaLink = document.getElementById('instaInput').value;
-      const fbLink = document.getElementById('fbInput').value;
-      
-      if (instaLink) {
-        localStorage.setItem('instagramLink', instaLink);
-        document.querySelector('a[href*="instagram"]').href = instaLink;
-      }
-      
-      if (fbLink) {
-        localStorage.setItem('facebookLink', fbLink);
-        document.querySelector('a[href*="facebook"]').href = fbLink;
-      }
-      
-      showNotification('Сошиал холбоос хадгалагдлаа!');
-      document.getElementById('socialEditor').style.display = 'none';
-    }
-    
-    // CSS animation нэмэх
-    const style = document.createElement('style');
-    style.textContent = `
-      @keyframes slideIn {
-        from { transform: translateX(100%); opacity: 0; }
-        to { transform: translateX(0); opacity: 1; }
-      }
-      @keyframes slideOut {
-        from { transform: translateX(0); opacity: 1; }
-        to { transform: translateX(100%); opacity: 0; }
-      }
-    `;
-    document.head.appendChild(style);
-    
-    // Social link editor нэмэх (uncomment if needed)
-    // addSocialLinkEditor();
+  
   </script>
 </body>
 </html>
